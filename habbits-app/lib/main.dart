@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'mvc/view/start_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -35,32 +37,48 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
           ),
           Positioned(
-            right: 30,
-            bottom: 30,
+            left: 30,
+            bottom: 150,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
-                  'The best time to start is now',
-                  style: TextStyle(fontSize: 30),
-                ),
-                const Text(
-                  'The best time to start is now',
-                  style: TextStyle(fontSize: 18),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.purple,
-                    backgroundColor: Colors.white,
-                  ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
                   child: const Text(
-                    'lets do it',
+                    'The best time to start is now',
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                    softWrap: true,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'The best time to start is now',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainPage()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                      foregroundColor: Colors.white,
+                      shape: StadiumBorder()),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'lets do it',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
               ],
